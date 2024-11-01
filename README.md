@@ -87,3 +87,22 @@ Program outputs processed data as described above. Partial credit will be earned
 Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit).
 Commit frequently to the git repository.
 Include a README file that contains a description of your application.
+
+
+THINGS I TRIED THAT DIDNT WORK
+
+//*****only spiting out one unique variable
+// const uniqueValues = learnerId.filter(  
+//   (item, index, self) =>
+//     index === self.findIndex((t) => t.id === item.id),
+// );
+// console.log(uniqueValues);
+
+// i dont like this one either it only pulls the learner id number but looses the key!
+// let uniqueNum = learnerId.map(item => item.learner_id).filter((value, index, self) =>
+//   self.indexOf(value) === index);
+
+// console.log(uniqueNum);
+
+// const score = learner.filter(score => learner.submission == submission.score)
+// console.log(score);
