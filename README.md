@@ -38,13 +38,13 @@ You may use as many helper functions as you see fit.
 function getLearnerData(course, ag, submissions) {
   const result = [
     {
-      id: 125,
+      xid: 125,
       avg: 0.985, // (47 + 150) / (50 + 150) *100 for the percentage 
-      1: 0.94, // 47 / 50 *100 for the percentage 
+      x1: 0.94, // 47 / 50 *100 for the percentage 
       2: 1.0 // 150 / 150 *100 for the percentage 
     },
     {
-      id: 132,
+      xid: 132,
       avg: 0.82, // (39 + 125) / (50 + 150) *100 for the percentage 
       1: 0.78, // 39 / 50 *100 for the percentage 
       2: 0.833 // late: (140 - 15) / 150 *100 for the percentage 
@@ -87,6 +87,13 @@ Program outputs processed data as described above. Partial credit will be earned
 Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit).
 Commit frequently to the git repository.
 Include a README file that contains a description of your application.
+
+TIPS AND TRICKS
+Provided by: Oussama!
+look in to .find to search the objects once your searching inside the array and to an object to search. Also put a random word in your console.log(item, 'word') so you know which one is the undefinded while you are troulbe shooting.
+Provided by: Tarence!
+? in a .find method
+It’s called optional chaining. I don’t think we learned it in class it’s kinda new JavaScript. Rmm the Russian doll example when it comes to nesting ?  It’s basically like you’re looking for a specific doll but there’s dolls within dolls. So instead of searching the normal way and getting an error message bc your doll isn’t in the location  you can have the imaginary  helper peek inside to let you know your doll isn’t there.
 
 
 THINGS I TRIED THAT DIDNT WORK

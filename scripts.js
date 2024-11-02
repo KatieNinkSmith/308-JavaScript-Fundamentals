@@ -11,6 +11,16 @@ const assignmentGroup = {
     {id: 3, name: "Code the World", due_at: "3156-11-15", points_possible: 500}
   ]
 };
+// let dueDate = assignmentGroup.assignments[0]?.due_at
+let doit = [...assignmentGroup.assignments]
+const turnItIn = assignmentGroup.assignments.filter(function (dueDate) {
+  const date = new Date();
+  // console.log(date, 'tomato');
+  if(dueDate.due_at <= date)
+  // creates a filter with an option for any maxage input
+  return [...assignmentGroup]
+});
+console.log(doit, 'ugli ');
 
 // The provided learner submission data.
 const learnerSubmissions = [
@@ -20,10 +30,61 @@ const learnerSubmissions = [
   {learner_id: 132, assignment_id: 1, submission: {submitted_at: "2023-01-24", score: 39}},
   {learner_id: 132, assignment_id: 2, submission: {Submitted_at: "2023-03-07", score: 140}},
 ];
-let learnerID = 132 // potentually prompt user to input learner ID so this could change 
-const learner = learnerSubmissions.filter(learner => learner.learner_id == learnerID)
-// console.log(learner);
 
+learnerSubmissions.sort((a, b) => a.assignment_id - b.assignment_id)
+// console.log(learnerSubmissions);
+const leaId = learnerSubmissions[0].assignment_id // this works for learner ID
+const assignId = assignmentGroup.assignments.find((arr)=> arr.id)?.id; // this works prints str with matching id
+const leaSco = learnerSubmissions[0].submission.score // this work for learner assignment score
+const assignPosPoi = []
+// assignmentGroup.assignments.find((arr, index) => Number(arr.points_possible)?.points_possible;
+//   return {
+//     ...assignmentGroup.assignments.points_possible?.points_possible
+
+//   }
+// ) // works to pull just the points_possible number!
+console.log(assignPosPoi, 'pear');
+console.log(leaSco, 'orange');
+console.log(leaId, 'nectarine');
+console.log(assignId, 'fruit salad');
+
+let idnum = learnerSubmissions.forEach((obj, index, array)=> {
+  console.log(array[index].assignment_id, 'Quince');
+})
+
+let idNum = assignmentGroup.assignments.forEach((obj, index, array)=> {
+  console.log(array[index].id, 'star fruit');
+})
+// let newArr = 
+// if(leaId === assignId){
+//   // console.log(leaSco/assignPosPoi,'kiwi');
+//    return leaSco/assignPosPoi
+// //    {
+// //   1: leaSco/assignPosPoi
+// // };
+// }
+const aGAssign = assignmentGroup.assignments.find((arr)=> arr.id)?.points_possible;
+console.log(aGAssign, 'mangansteen');
+// aGAssign.forEach(strId)
+
+function strId(id){
+  console.log(aGAssign.id, 'lychee');
+}
+  // let scorePer = [...percent]
+
+  if(leaId == assignId){
+    console.log(leaSco/assignPosPoi, 'kiwi');
+  }
+
+ // .find
+  // console.log(learnerSubmissions[0].submission.score / assignmentGroup.assignments.find((arr)=> arr.points_possible), 'indian apple')
+
+// console.log(learnerSubmissions[0].assignment_id, 'grape'); assignment number in learnerSubmission
+// console.log(assignmentGroup.assignments.find((id)=> id.id = learnerSubmissions[0].assignment_id), 'honeydew'); //not spitting out yet
+// console.log(learnerSubmissions[0].submission.score); learner score
+// console.log(assignmentGroup.assignments.find((points_possible)=> points_possible)); //not spitting out yet
+
+// output of const arr
 // [ {learner_id: 125, assignment_id: 1, submission: { Submitted_at: '2023-01-25', score: 47 }},
 //   {learner_id: 125, assignment_id: 2, submission: { submitted_at: '2023-02-12', score: 150 }},
 //   {learner_id: 125, assignment_id: 3, submission: { submitted_at: '2023-01-25', score: 400 }}]
@@ -32,32 +93,38 @@ const learner = learnerSubmissions.filter(learner => learner.learner_id == learn
 
 // [ {learner_id: 132, assignment_id: 1, submission: { submitted_at: '2023-01-24', score: 39 }},
 //   {learner_id: 132, assignment_id: 2, submission: { Submitted_at: '2023-03-07', score: 140 }}]
+function student(arr){
+  const learnerId = arr.map(function (obj) { return Number(obj.learner_id)});
+//  console.log(learnerId, 'elderberry'); //pulls out learner ID's
+  const uniqueNum = learnerId.map(num => num).filter((value, index, self) =>self.indexOf(value) === index);
+    console.log(uniqueNum, 'dragon fruit'); //pulls unique numbers to use
+} 
+const studentId = student(learnerSubmissions)
 
-function essInfo(arr){
-  for(arr=0; arr<learner.length; arr++){
-    let learnArr = learner[arr].submission;
-    if (learnArr[arr] = learnerID){
-      console.log(learnArr);
+function scoreInfo(learnerID){
+  const arr = learnerSubmissions.filter(learner => learner.learner_id == learnerID); 
+  // console.log(arr, 'apple');
+  for(i=0; i<arr.length; i++){
+    const learnArr = arr[i];
+    // console.log(learnArr, 'banana');
+    if (arr[i].learner_id == learnerID){
+        console.log(learnArr.submission.score, 'cherry');
+      continue;
     } 
-    else { 
-      console.log('Not a Learner ID please try');
-    }
-// ***** Im not sure whta in my code changes the key for learner_id to the arr index number but i can change it back to what i want it to be later
-    //  { '0': 125, Submitted_at: '2023-01-25', score: 47 }
-    //  { '1': 125, submitted_at: '2023-02-12', score: 150 }
-    //  { '2': 125, submitted_at: '2023-01-25', score: 400 } 
-    // or based on different learnerID input
-    //  { '0': 132, submitted_at: '2023-01-24', score: 39 }
-    //  { '1': 132, Submitted_at: '2023-03-07', score: 140 }
-    //   return learnArr
-    // console.log(learnerSubmissions[arr]);
-    // if(arr == 'submission'){
-    //   return learner.submission
-    // }
   }
 }
-console.log(essInfo(learner));
+const indviScore = scoreInfo(132)
 
+
+
+
+// const scoreStr = indviScore.score  
+  // sorts out just the age input
+
+  // return Number(person.score);
+  
+
+// console.log(scoreStr);
 
 
 function getlearnerID(firstoutput){
@@ -71,17 +138,18 @@ function getlearnerID(firstoutput){
   let uniqueNum = learnerId.map(item => item.learner_id).filter((value, index, self) =>
     self.indexOf(value) === index
   );
-  console.log(uniqueNum); //pulls unique numbers to use
+  // console.log(uniqueNum, 'dragon fruit'); //pulls unique numbers to use
   // pul out numbers into a string with id:
     uniqueNum.forEach(num => {
     return {
-      id: num
+      id: getlearnerID
     }
   })
 
  
 }
-// console.log(getlearnerID(learnerSubmissions));
+
+// console.log(getlearnerID(), 'Zest');
 
 
 // function getLearnerData(course, ag, submissions) {
