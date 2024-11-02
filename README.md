@@ -89,6 +89,11 @@ Commit frequently to the git repository.
 Include a README file that contains a description of your application.
 
 TIPS AND TRICKS
+Provided by: Fatou 
+add try catch to everything!!!! first line to last
+try {} catch (error) {
+  console.log(object);
+}
 Provided by: Oussama!
 look in to .find to search the objects once your searching inside the array and to an object to search. Also put a random word in your console.log(item, 'word') so you know which one is the undefinded while you are troulbe shooting.
 Provided by: Tarence!
