@@ -38,13 +38,13 @@ You may use as many helper functions as you see fit.
 function getLearnerData(course, ag, submissions) {
   const result = [
     {
-      xid: 125,
+      id: 125,
       avg: 0.985, // (47 + 150) / (50 + 150) *100 for the percentage 
-      x1: 0.94, // 47 / 50 *100 for the percentage 
+      1: 0.94, // 47 / 50 *100 for the percentage 
       2: 1.0 // 150 / 150 *100 for the percentage 
     },
     {
-      xid: 132,
+      id: 132,
       avg: 0.82, // (39 + 125) / (50 + 150) *100 for the percentage 
       1: 0.78, // 39 / 50 *100 for the percentage 
       2: 0.833 // late: (140 - 15) / 150 *100 for the percentage 
@@ -98,7 +98,7 @@ It’s called optional chaining. I don’t think we learned it in class it’s k
 
 THINGS I TRIED THAT DIDNT WORK
 
-//*****only spiting out one unique variable
+//*****only spitting out one unique variable
 // const uniqueValues = learnerId.filter(  
 //   (item, index, self) =>
 //     index === self.findIndex((t) => t.id === item.id),

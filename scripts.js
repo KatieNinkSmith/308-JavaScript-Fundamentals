@@ -1,4 +1,6 @@
 console.log('Hey Hey Hey this is my SBA!');
+try {
+  
 
 // The provided course information.
 const courseInfo = {id: 451, name: "Introduction to JavaScript"};
@@ -11,16 +13,50 @@ const assignmentGroup = {
     {id: 3, name: "Code the World", due_at: "3156-11-15", points_possible: 500}
   ]
 };
-// let dueDate = assignmentGroup.assignments[0]?.due_at
-let doit = [...assignmentGroup.assignments]
-const turnItIn = assignmentGroup.assignments.filter(function (dueDate) {
-  const date = new Date();
-  // console.log(date, 'tomato');
-  if(dueDate.due_at <= date)
-  // creates a filter with an option for any maxage input
-  return [...assignmentGroup]
+console.log(assignmentGroup.assignments, 'yo');
+const date = new Date();
+console.log(date, 'ita palm');
+console.log(assignmentGroup.assignments.filter(notDue => Number(notDue.due_at) > date), 'pineapple');
+// const arr = assignmentGroup.assignments.filter(notDue => Number(notDue.due_at) > Date.now()); 
+// console.log(arr, 'mango');
+
+const arr = assignmentGroup.assignments.filter(notDue => {
+  const dueDate = new Date(notDue.due_at); // Convert due_at to a Date object
+  return dueDate <= date; // Include only assignments that are due or past due
 });
-console.log(doit, 'ugli ');
+
+console.log(arr, 'strawberry');
+// console.log(assignmentGroup.assignments[0].due_at);
+// assignmentGroupArr = assignmentGroup.assignments.filter(due => Number(due.due_at) < date);
+
+// console.log(assignmentGroupArr, 'lemon');
+// const assigndue = assignmentGroup.assignments.forEach((obj, index, array)=> {
+//   if(Number(obj.due_at) < date)
+//   return obj[index]
+// });
+// console.log(assigndue, 'hog plum');
+// const dueAssignments = assignmentGroup.assignments.filter(function(ele){
+//   return ele < date;
+// })
+
+
+  // if (Number(assignmentGroup.assignments[0].due_at) < date){
+  //   // console.log(date);
+  // return []
+  // }
+// console.log(assignmentGroup, 'dragon fruit');
+
+// let dueDate = assignmentGroup.assignments[0]?.due_at
+// let doit = [...assignmentGroup.assignments]
+// const turnItIn = assignmentGroup.assignments.filter(function (dueDate) {
+//   const date = new Date();
+//   // console.log(date, 'tomato');
+//   if(Number(dueDate.due_at) < date){
+//     console.log(Number(dueDate.due_at), vanilla);
+//   return [...assignmentGroup[0].assignments]
+//   }
+// });
+// console.log(doit, 'ugli ');
 
 // The provided learner submission data.
 const learnerSubmissions = [
@@ -31,30 +67,46 @@ const learnerSubmissions = [
   {learner_id: 132, assignment_id: 2, submission: {Submitted_at: "2023-03-07", score: 140}},
 ];
 
-learnerSubmissions.sort((a, b) => a.assignment_id - b.assignment_id)
+// learnerSubmissions.sort((a, b) => a.assignment_id - b.assignment_id)
 // console.log(learnerSubmissions);
 const leaId = learnerSubmissions[0].assignment_id // this works for learner ID
 const assignId = assignmentGroup.assignments.find((arr)=> arr.id)?.id; // this works prints str with matching id
 const leaSco = learnerSubmissions[0].submission.score // this work for learner assignment score
-const assignPosPoi = []
-// assignmentGroup.assignments.find((arr, index) => Number(arr.points_possible)?.points_possible;
+const assignPosPoi = assignmentGroup.assignments.find((arr, index) => Number(arr.points_possible)?.points_possible);
 //   return {
 //     ...assignmentGroup.assignments.points_possible?.points_possible
 
 //   }
 // ) // works to pull just the points_possible number!
-console.log(assignPosPoi, 'pear');
-console.log(leaSco, 'orange');
-console.log(leaId, 'nectarine');
-console.log(assignId, 'fruit salad');
+// console.log(assignPosPoi, 'pear');
+// console.log(leaSco, 'orange');
+// console.log(leaId, 'nectarine');
+// console.log(assignId, 'fruit salad');
 
 let idnum = learnerSubmissions.forEach((obj, index, array)=> {
-  console.log(array[index].assignment_id, 'Quince');
+  // console.log(array[index].assignment_id, 'Quince');
 })
 
 let idNum = assignmentGroup.assignments.forEach((obj, index, array)=> {
-  console.log(array[index].id, 'star fruit');
+  // console.log(array[index].id, 'star fruit');
 })
+// let posSco = assignmentGroup.assignments.forEach((obj, index, array)=> {
+//   console.log(array[index].points_possible, 'cocnut');
+// });
+  // let scoAct = learnerSubmissions.forEach((obj, index, array)=> {
+  //   console.log(array[index].submission.score, 'blueberry');
+  // });
+let percent = []
+if (idnum == idNum){
+  let posSco = arr.forEach((obj, index, array)=> {
+    console.log(array[index].points_possible, 'nectarine');
+  });
+  let scoAct = learnerSubmissions.forEach((obj, index, array)=> {
+    console.log(array[index].submission.score, 'raspberry');
+  });
+  // console.log(scoAct/posSco, 'yellow plum');
+  // retirn 
+}
 // let newArr = 
 // if(leaId === assignId){
 //   // console.log(leaSco/assignPosPoi,'kiwi');
@@ -64,7 +116,7 @@ let idNum = assignmentGroup.assignments.forEach((obj, index, array)=> {
 // // };
 // }
 const aGAssign = assignmentGroup.assignments.find((arr)=> arr.id)?.points_possible;
-console.log(aGAssign, 'mangansteen');
+// console.log(aGAssign, 'mangansteen');
 // aGAssign.forEach(strId)
 
 function strId(id){
@@ -72,9 +124,9 @@ function strId(id){
 }
   // let scorePer = [...percent]
 
-  if(leaId == assignId){
-    console.log(leaSco/assignPosPoi, 'kiwi');
-  }
+  // if(leaId == assignId){
+  //   console.log(posSco/scoAct, 'kiwi');
+  // }
 
  // .find
   // console.log(learnerSubmissions[0].submission.score / assignmentGroup.assignments.find((arr)=> arr.points_possible), 'indian apple')
@@ -99,6 +151,9 @@ function student(arr){
   const uniqueNum = learnerId.map(num => num).filter((value, index, self) =>self.indexOf(value) === index);
     console.log(uniqueNum, 'dragon fruit'); //pulls unique numbers to use
 } 
+} catch (error) {
+  console.log(object);
+}
 const studentId = student(learnerSubmissions)
 
 function scoreInfo(learnerID){
@@ -108,12 +163,12 @@ function scoreInfo(learnerID){
     const learnArr = arr[i];
     // console.log(learnArr, 'banana');
     if (arr[i].learner_id == learnerID){
-        console.log(learnArr.submission.score, 'cherry');
+        // console.log(learnArr.submission.score, 'cherry');
       continue;
     } 
   }
 }
-const indviScore = scoreInfo(132)
+const indviScore = scoreInfo(125)
 
 
 
