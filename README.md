@@ -64,7 +64,6 @@ return {
   assignment_id: number
   assignment_id: number
 }
-output errors when assignemnt_id dose not match courseInfo id:
 what to output if points_possible: 0 can not / by 0
 always convert score/id's/possible_points to Number()
 try/catch for other errors 
@@ -74,27 +73,27 @@ calculate assignment score -10% if it is late **lots of date manipluation
 REQUIERMENTS! *****absolute minimums*****
 
 [ x]Declare variables properly using let and const where appropriate.
-Use operators to perform calculations on variables and literals.
-Use strings, numbers, and Boolean values cached within variables.
-Use at least two if/else statements to control program flow. Optionally, use at least one switch statement.
-Use try/catch statements to manage potential errors in the code, such as incorrectly formatted or typed data being fed into your program.
+[ x]Use operators to perform calculations on variables and literals.
+[ x]Use strings, numbers, and Boolean values cached within variables.
+[ x]Use at least two if/else statements to control program flow. Optionally, use at least one switch statement.
+[ x]Use try/catch statements to manage potential errors in the code, such as incorrectly formatted or typed data being fed into your program.
 Utilize at least two different types of loops.
-Utilize at least one loop control keyword such as break or continue.
-Create and/or manipulate arrays and objects.
-Demonstrate the retrieval, manipulation, and removal of items in an array or properties in an object.
-Use functions to handle repeated tasks.
+[ x]Utilize at least one loop control keyword such as break or continue.
+[ x]Create and/or manipulate arrays and objects.
+[ x]Demonstrate the retrieval, manipulation, and removal of items in an array or properties in an object.
+[ x]Use functions to handle repeated tasks.
 Program outputs processed data as described above. Partial credit will be earned depending on the level of adherence to the described behavior.
 Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit).
-Commit frequently to the git repository.
-Include a README file that contains a description of your application.
+[ x]Commit frequently to the git repository.
+[ x]Include a README file that contains a description of your application.
 
 TIPS AND TRICKS
 Provided by: Fatou 
-add try catch to everything!!!! first line to last
+add try catch to everything first line to last
 try {} catch (error) {
   console.log(object);
 }
-Provided by: Oussama!
+Provided by: Oussama! turns out find stops once it finds it and does not keep looing map and forEach are better for most uses 
 look in to .find to search the objects once your searching inside the array and to an object to search. Also put a random word in your console.log(item, 'word') so you know which one is the undefinded while you are troulbe shooting.
 Provided by: Tarence!
 ? in a .find method
@@ -109,12 +108,69 @@ THINGS I TRIED THAT DIDNT WORK
 //     index === self.findIndex((t) => t.id === item.id),
 // );
 // console.log(uniqueValues);
-
 // i dont like this one either it only pulls the learner id number but looses the key!
 // let uniqueNum = learnerId.map(item => item.learner_id).filter((value, index, self) =>
 //   self.indexOf(value) === index);
-
 // console.log(uniqueNum);
-
 // const score = learner.filter(score => learner.submission == submission.score)
 // console.log(score);
+console.log(assignmentGroup.assignments.filter(notDue => Number(notDue.due_at) > date), 'pineapple');
+const arr = assignmentGroup.assignments.filter(notDue => Number(notDue.due_at) > Date.now()); 
+console.log(arr, 'mango');
+console.log(assignmentGroup.assignments[0].due_at);
+assignmentGroupArr = assignmentGroup.assignments.filter(due => Number(due.due_at) < date);
+console.log(assignmentGroupArr, 'lemon');
+const assigndue = assignmentGroup.assignments.forEach((obj, index, array)=> {
+  if(Number(obj.due_at) < date)
+  return obj[index]
+});
+console.log(assigndue, 'hog plum');
+const dueAssignments = assignmentGroup.assignments.filter(function(ele){
+  return ele < date;
+})
+  if (Number(assignmentGroup.assignments[0].due_at) < date){
+    console.log(date);
+  return []
+  }
+console.log(assignmentGroup, 'dragon fruit');
+const assignPosPoi = assignmentGroup.assignments.find((arr, index) => Number(arr.points_possible)?.points_possible);
+console.log(assignPosPoi, 'pear');
+if(leaId === assignId){
+  console.log(leaSco/assignPosPoi,'kiwi');
+   return leaSco/assignPosPoi
+}
+learnerSubmissions.sort((a, b) => a.assignment_id - b.assignment_id)
+console.log(learnerSubmissions);
+const leaId = learnerSubmissions[0].assignment_id // this works for learner ID
+const assignId = assignmentGroup.assignments.find((arr)=> arr.id)?.id; // this works prints str with matching id
+const leaSco = learnerSubmissions[0].submission.score // this work for learner assignment score
+console.log(leaSco, 'orange');
+console.log(leaId, 'nectarine');
+console.log(assignId, 'fruit salad');
+const aGAssign = assignmentGroup.assignments.find((arr)=> arr.id)?.points_possible;
+console.log(aGAssign, 'mangansteen');
+function strId(id){
+  console.log(aGAssign.id, 'lychee');
+}
+  let scorePer = [...percent]
+  if(leaId == assignId){
+    console.log(posSco/scoAct, 'kiwi');
+  }
+  console.log(learnerSubmissions[0].submission.score / assignmentGroup.assignments.find((arr)=> arr.points_possible), 'indian apple')
+console.log(learnerSubmissions[0].assignment_id, 'grape'); // assignment number in learnerSubmission
+console.log(assignmentGroup.assignments.find((id)=> id.id = learnerSubmissions[0].assignment_id), 'honeydew'); //not spitting out yet
+console.log(learnerSubmissions[0].submission.score);
+console.log(assignmentGroup.assignments.find((points_possible)=> points_possible)); //not spitting out yet
+  let uniqueNum = learnerId.map(item => item.learner_id).filter((value, index, self) =>
+    self.indexOf(value) === index
+  );
+    uniqueNum.forEach(num => {
+    return {
+      id: getlearnerID
+    }
+  })
+let dueDate = assignmentGroup.assignments[0]?.due_at
+let doit = [...assignmentGroup.assignments]
+const turnItIn = assignmentGroup.assignments.filter(function (dueDate) {
+  // const date = new Date();
+});

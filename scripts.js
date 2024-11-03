@@ -1,296 +1,233 @@
-
-console.log('Hey Hey Hey this is my SBA!');
-
-  
+console.log("Hey Hey Hey this is my SBA!");
 
 // The provided course information.
-const courseInfo = {id: 451, name: "Introduction to JavaScript"};
+const courseInfo = { id: 451, name: "Introduction to JavaScript" };
 
 // The provided assignment group.
 const assignmentGroup = {
-  id: 12345, name: "Fundamentals of JavaScript", course_id: 451, group_weight: 25, assignments: [
-    {id: 1, name: "Declare a Variable", due_at: "2023-01-25", points_possible: 50},
-    {id: 2, name: "Write a Function", due_at: "2023-02-27", points_possible: 150},
-    {id: 3, name: "Code the World", due_at: "3156-11-15", points_possible: 500}
-  ]
+  id: 12345,
+  name: "Fundamentals of JavaScript",
+  course_id: 451,
+  group_weight: 25,
+  assignments: [
+    {
+      id: 1,
+      name: "Declare a Variable",
+      due_at: "2023-01-25",
+      points_possible: 50,
+    },
+    {
+      id: 2,
+      name: "Write a Function",
+      due_at: "2023-02-27",
+      points_possible: 150,
+    },
+    {
+      id: 3,
+      name: "Code the World",
+      due_at: "3156-11-15",
+      points_possible: 500,
+    },
+  ],
 };
-// console.log(assignmentGroup.assignments, 'yo');
 // const date = new Date();
-// console.log(date, 'ita palm');
-// console.log(assignmentGroup.assignments.filter(notDue => Number(notDue.due_at) > date), 'pineapple');
-// const arr = assignmentGroup.assignments.filter(notDue => Number(notDue.due_at) > Date.now()); 
-// console.log(arr, 'mango');
-
-// const arr = assignmentGroup.assignments.filter(notDue => {
-//   const dueDate = new Date(notDue.due_at); // Convert due_at to a Date object
+// console.log(date);
+// const dueAssign = assignmentGroup.assignments.filter(assignment => {
+//   const dueDate = new Date(assignment.due_at);
 //   return dueDate <= date; // Include only assignments that are due or past due
 // });
-
-// console.log(arr, 'strawberry');
-// console.log(assignmentGroup.assignments[0].due_at);
-// assignmentGroupArr = assignmentGroup.assignments.filter(due => Number(due.due_at) < date);
-
-// console.log(assignmentGroupArr, 'lemon');
-// const assigndue = assignmentGroup.assignments.forEach((obj, index, array)=> {
-//   if(Number(obj.due_at) < date)
-//   return obj[index]
-// });
-// console.log(assigndue, 'hog plum');
-// const dueAssignments = assignmentGroup.assignments.filter(function(ele){
-//   return ele < date;
-// })
-
-
-  // if (Number(assignmentGroup.assignments[0].due_at) < date){
-  //   // console.log(date);
-  // return []
-  // }
-// console.log(assignmentGroup, 'dragon fruit');
-
-// let dueDate = assignmentGroup.assignments[0]?.due_at
-// let doit = [...assignmentGroup.assignments]
-// const turnItIn = assignmentGroup.assignments.filter(function (dueDate) {
-//   const date = new Date();
-//   // console.log(date, 'tomato');
-//   if(Number(dueDate.due_at) < date){
-//     console.log(Number(dueDate.due_at), vanilla);
-//   return [...assignmentGroup[0].assignments]
-//   }
-// });
-// console.log(doit, 'ugli ');
-
+// console.log(dueAssign);
 // The provided learner submission data.
 const learnerSubmissions = [
-  {learner_id: 125, assignment_id: 1, submission: {Submitted_at: "2023-01-25", score: 47}},
-  {learner_id: 125, assignment_id: 2, submission: {submitted_at: "2023-02-12", score: 150}},
-  {learner_id: 125, assignment_id: 3, submission: {submitted_at: "2023-01-25", score: 400}},
-  {learner_id: 132, assignment_id: 1, submission: {submitted_at: "2023-01-24", score: 43}},
-  {learner_id: 132, assignment_id: 2, submission: {Submitted_at: "2023-03-07", score: 140}},
+  {
+    learner_id: 125,
+    assignment_id: 1,
+    submission: { Submitted_at: "2023-01-25", score: 47 },
+  },
+  {
+    learner_id: 125,
+    assignment_id: 2,
+    submission: { submitted_at: "2023-02-12", score: 150 },
+  },
+  {
+    learner_id: 125,
+    assignment_id: 3,
+    submission: { submitted_at: "2023-01-25", score: 400 },
+  },
+  {
+    learner_id: 132,
+    assignment_id: 1,
+    submission: { submitted_at: "2023-01-24", score: 39 },
+  },
+  {
+    learner_id: 132,
+    assignment_id: 2,
+    submission: { Submitted_at: "2023-03-07", score: 140 },
+  },
 ];
-
-// learnerSubmissions.sort((a, b) => a.assignment_id - b.assignment_id)
-// console.log(learnerSubmissions);
-// const leaId = learnerSubmissions[0].assignment_id // this works for learner ID
-// const assignId = assignmentGroup.assignments.find((arr)=> arr.id)?.id; // this works prints str with matching id
-// const leaSco = learnerSubmissions[0].submission.score // this work for learner assignment score
-// const assignPosPoi = assignmentGroup.assignments.find((arr, index) => Number(arr.points_possible)?.points_possible);
-//   return {
-//     ...assignmentGroup.assignments.points_possible?.points_possible
-
-//   }
-// ) // works to pull just the points_possible number!
-// console.log(assignPosPoi, 'pear');
-// console.log(leaSco, 'orange');
-// console.log(leaId, 'nectarine');
-// console.log(assignId, 'fruit salad');
-
 // let idnum = learnerSubmissions.forEach((obj, index, array)=> {
-//   console.log(array[index].assignment_id, 'Quince');
+//   (array[index].assignment_id);
 // })
-
-// let idNum = arr.forEach((obj, index, array)=> {
-//   console.log(array[index].id, 'star fruit');
+// let idNum = assignmentGroup.assignments.forEach((obj, index, array)=> {
+//   (array[index].id);
 // })
-// let posSco = assignmentGroup.assignments.forEach((obj, index, array)=> {
-//   console.log(array[index].points_possible, 'cocnut');
+// const assignPoi = dueAssign.reduce((map, assignment) => {
+//   map[assignment.id] = assignment.points_possible;
+//   return map;
+// }, {}); //console.log(assignPoi);
+// learnerSubmissions.forEach(submission => {
+//   const assignmentId = submission.assignment_id;
+//   // console.log(assignmentId);
+//   const score = submission.submission.score;
+// console.log(score);
+// while(assignment.id === assignmentId){
+//   console.log(assignPoi/score)
+// }
 // });
-  // let scoAct = learnerSubmissions.forEach((obj, index, array)=> {
-  //   console.log(array[index].submission.score, 'blueberry');
-  // });
-// let percent = []
-// if (idnum == idNum){
-//   let posSco = arr.forEach((obj, index, array)=> {
-//     console.log(array[index].points_possible, 'nectarine');
-//   });
-//   let scoAct = learnerSubmissions.forEach((obj, index, array)=> {
-//     console.log(array[index].submission.score, 'raspberry');
-//   });
-//   // console.log(scoAct/posSco, 'yellow plum');
-//   // retirn 
-// }
-// let newArr = 
-// if(leaId === assignId){
-//   // console.log(leaSco/assignPosPoi,'kiwi');
-//    return leaSco/assignPosPoi
-// //    {
-// //   1: leaSco/assignPosPoi
-// // };
-// }
-// const aGAssign = assignmentGroup.assignments.find((arr)=> arr.id)?.points_possible;
-// console.log(aGAssign, 'mangansteen');
-// aGAssign.forEach(strId)
 
-// function strId(id){
-//   console.log(aGAssign.id, 'lychee');
-// }
-  // let scorePer = [...percent]
-
-  // if(leaId == assignId){
-  //   console.log(posSco/scoAct, 'kiwi');
-  // }
-
- // .find
-  // console.log(learnerSubmissions[0].submission.score / assignmentGroup.assignments.find((arr)=> arr.points_possible), 'indian apple')
-
-// console.log(learnerSubmissions[0].assignment_id, 'grape'); assignment number in learnerSubmission
-// console.log(assignmentGroup.assignments.find((id)=> id.id = learnerSubmissions[0].assignment_id), 'honeydew'); //not spitting out yet
-// console.log(learnerSubmissions[0].submission.score); learner score
-// console.log(assignmentGroup.assignments.find((points_possible)=> points_possible)); //not spitting out yet
-
-// output of const arr
-// [ {learner_id: 125, assignment_id: 1, submission: { Submitted_at: '2023-01-25', score: 47 }},
-//   {learner_id: 125, assignment_id: 2, submission: { submitted_at: '2023-02-12', score: 150 }},
-//   {learner_id: 125, assignment_id: 3, submission: { submitted_at: '2023-01-25', score: 400 }}]
-
-// or based on other learnerID input you get you can add additional learners with other ID's and it will still provied an array of objects for them 
-
-// [ {learner_id: 132, assignment_id: 1, submission: { submitted_at: '2023-01-24', score: 39 }},
-//   {learner_id: 132, assignment_id: 2, submission: { Submitted_at: '2023-03-07', score: 140 }}]
 // function student(arr){
 //   const learnerId = arr.map(function (obj) { return Number(obj.learner_id)});
-// //  console.log(learnerId, 'elderberry'); //pulls out learner ID's
 //   const uniqueNum = learnerId.map(num => num).filter((value, index, self) =>self.indexOf(value) === index);
-//     console.log(uniqueNum, 'dragon fruit'); //pulls unique numbers to use
-// } 
-
-
-
+//     uniqueNum; //pulls unique numbers to use not the best way to pull and then push
+// }
 // const studentId = student(learnerSubmissions)
-
 // function scoreInfo(learnerID){
-//   const arr = learnerSubmissions.filter(learner => learner.learner_id == learnerID); 
-//   // console.log(arr, 'apple');
+//   const arr = learnerSubmissions.filter(learner => learner.learner_id == learnerID);
 //   for(i=0; i<arr.length; i++){
 //     const learnArr = arr[i];
-//     // console.log(learnArr, 'banana');
 //     if (arr[i].learner_id == learnerID){
-//         // console.log(learnArr.submission.score, 'cherry');
 //       continue;
-//     } 
+//     } pulled learner array sperately but not nesscesary
 //   }
 // }
 // const indviScore = scoreInfo(125)
-
-
-
-
-// const scoreStr = indviScore.score  
-  // sorts out just the age input
-
-  // return Number(person.score);
-  
-
-// console.log(scoreStr);
-
-
 // function getlearnerID(firstoutput){
 //   let learnerId = learnerSubmissions.map(function (obj) {
 //         return {
 //           learner_id: Number(obj.learner_id),
 //         }
 //   })
-// //  console.log(learnerId); //pulls out learner ID's
-
-//   let uniqueNum = learnerId.map(item => item.learner_id).filter((value, index, self) =>
-//     self.indexOf(value) === index
-//   );
-//   // console.log(uniqueNum, 'dragon fruit'); //pulls unique numbers to use
-//   // pul out numbers into a string with id:
-//     uniqueNum.forEach(num => {
-//     return {
-//       id: getlearnerID
-//     }
-//   })
-
- 
 // }
-function calculateAssignmentScores(assignmentGroup, learnerSubmissions) {
-const date = new Date();
-const arr = assignmentGroup.assignments.filter(assignment => {
-  const dueDate = new Date(assignment.due_at); // Convert due_at to a Date object
-  return dueDate <= date; // Include only assignments that are due or past due
-});
-// console.log(arr);
-// Create a map for assignment points_possible for easier lookup
-const assignPoi = arr.reduce((map, assignment) => {
-  map[assignment.id] = assignment.points_possible;
-  return map;
-}, {});
-// console.log(assignPoi);
-// Initialize an object to hold scores for each learner
-const scores = {};
-    // Calculate percentage scores for all students
-    learnerSubmissions.forEach(submission => {
-      const assignmentId = submission.assignment_id;
-      const score = submission.submission.score;
-
-      if (assignPoi[assignmentId] !== undefined) {
-          const pointsPossible = assignPoi[assignmentId];
-          const percentage = score / pointsPossible; // Percentage as a decimal
-
-          // Initialize the learner in the scores object if not already present
-          if (!scores[submission.learner_id]) {
-              scores[submission.learner_id] = { id: submission.learner_id, avg: 0, assignments: {} };
-          }
-
-          // Store the percentage for the specific assignment
-          scores[submission.learner_id].assignments[assignmentId] = percentage;
-      }
-  });
-// Calculate averages and format the output
-const result = Object.values(scores).map(learner => {
-  const assignmentPercentages = Object.values(learner.assignments);
-  const avg = assignmentPercentages.length > 0 ? assignmentPercentages.reduce((sum, score) => sum + score, 0) / assignmentPercentages.length: 0;
-
-        // Create the output object
-        const output = {
-          id: learner.id,
-          avg: Math.round(avg * 100) 
-      };
-
-      // Add individual assignment percentages
-      assignmentPercentages.forEach((percentage, index) => {
-        output[`assignment_${index + 1}`] = (Math.round(percentage * 100)); // Store at assignment keys
-    });
-
-      return output;
-});
-  return result;
-}
-// Example usage:
-const scores = calculateAssignmentScores(assignmentGroup, learnerSubmissions);
-console.log(scores);
-// console.log(result);
-
 // Function to get unique learner IDs
 // function student(arr) {
 //   const uniqueIds = [...new Set(arr.map(obj => obj.learner_id))];
-//   console.log(uniqueIds);
+//   // console.log(uniqueIds);
 //   return uniqueIds;
 // }
-// const studentId = student(learnerSubmissions)
+// const studentId1 = student(learnerSubmissions)
 
 // Function to get submission info for a specific learner
 // function scoreInfo(learnerID) {
 //   const learnerScores = learnerSubmissions.filter(learner => learner.learner_id === learnerID);
 //   learnerScores.forEach(score => {
-//     console.log(`id: ${score.assignment_id}, Score: ${score.submission.score}`);
+//     // console.log(`id: ${score.assignment_id}, Score: ${score.submission.score}`);
 //   });
 // }
-// const indviScore = scoreInfo(125)
+// const indviScore1 = scoreInfo(125)
+
+
+
+// ***************final function*************
+function calculateAssignmentScores(assignmentGroup, learnerSubmissions) {
+  try {
+    const date = new Date();
+    // Filter for due assignments
+    const dueAssignments = assignmentGroup.assignments.filter((assignment) => {
+      const dueDate = new Date(assignment.due_at);
+      return dueDate <= date; // Include only assignments that are due or past due
+    });
+    // Create a map for assignment points_possible for easier lookup
+    const assignPoi = dueAssignments.reduce((map, assignment) => {
+      map[assignment.id] = assignment.points_possible;
+      return map;
+    }, {}); //console.log(assignPoi);
+    // Initialize an object to hold scores for each learner
+    const scores = {};
+    // Loop through learner submissions
+    for (let i = 0; i < learnerSubmissions.length; i++) {
+      const submission = learnerSubmissions[i];
+      // Validate learner_id length
+      if (submission.learner_id.toString().length > 3) {
+        console.log(
+          `Omitting learner_id: ${submission.learner_id}. It must not exceed three digits.`
+        );
+        continue; // Skip this submission
+      }
+      const assignmentId = submission.assignment_id;
+      // console.log(assignmentId);
+      const score = submission.submission.score;
+      // console.log(score);
+      const submittedAt = new Date(
+        submission.submission.Submitted_at || submission.submission.submitted_at
+      ); // Get submission date
+      // console.log(submittedAt);
+      // Only process submissions for assignments that are due
+      if (assignPoi[assignmentId] !== undefined) {
+        const pointsPossible = assignPoi[assignmentId];
+        let percentage = score / pointsPossible; // Percentage as a decimal
+        // Check if the submission is late
+        const dueDate = new Date(
+          assignmentGroup.assignments.find((a) => a.id === assignmentId).due_at
+        );
+        if (submittedAt > dueDate) {
+          percentage *= 0.9; // Deduct 10%
+        }
+        // Initialize the learner in the scores object if not already present
+        if (!scores[submission.learner_id]) {
+          scores[submission.learner_id] = {
+            id: submission.learner_id,
+            avg: 0,
+            assignments: {},
+          };
+        }
+        // Store the percentage for the specific assignment
+        scores[submission.learner_id].assignments[assignmentId] = percentage;
+      }
+    } // console.log(scores);
+    // Calculate averages and format the output
+    const result = Object.values(scores).map((learner) => {
+      const assignmentPercentages = Object.values(learner.assignments);
+      // console.log(assignmentPercentages);
+      const avg =
+        assignmentPercentages.length > 0
+          ? assignmentPercentages.reduce((sum, score) => sum + score, 0) /
+            assignmentPercentages.length
+          : 0;
+      // Create the output object
+      const output = {
+        id: learner.id,
+        avg: Math.round(avg * 100), // Convert to percentage
+      };
+      // console.log(output);
+      // Add individual assignment percentages
+      assignmentPercentages.forEach((percentage, index) => {
+        output[`assignment_${index + 1}`] = Math.round(percentage * 100); // Store at assignment keys
+      });
+      return output;
+    });
+    return result;
+  } catch (error) {
+    console.error("Uh oh, something went wrong:", error.message);
+  }
+}
+const results = calculateAssignmentScores(assignmentGroup, learnerSubmissions);
+console.log(results);
+
+
+
 // function getLearnerData(course, ag, submissions) {
 //   const result = [
 //     {
 //       id: 125,
-//       avg: 0.985, // (47 + 150) / (50 + 150) *100 for the percentage 
-//       1: 0.94, // 47 / 50 *100 for the percentage 
-//       2: 1.0 // 150 / 150 *100 for the percentage 
+//       avg: 98,
+//       1: 94,
+//       2: 100
 //     },
 //     {
 //       id: 132,
-//       avg: 0.82, // (39 + 125) / (50 + 150) *100 for the percentage 
-//       1: 0.78, // 39 / 50 *100 for the percentage 
-//       2: 0.833 // late: (140 - 15) / 150 *100 for the percentage 
+//       avg: 82,
+//       1: 78,
+//       2: 83
 //     }
 //   ];
 // }
