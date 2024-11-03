@@ -64,7 +64,7 @@ const learnerSubmissions = [
   {learner_id: 125, assignment_id: 1, submission: {Submitted_at: "2023-01-25", score: 47}},
   {learner_id: 125, assignment_id: 2, submission: {submitted_at: "2023-02-12", score: 150}},
   {learner_id: 125, assignment_id: 3, submission: {submitted_at: "2023-01-25", score: 400}},
-  {learner_id: 132, assignment_id: 1, submission: {submitted_at: "2023-01-24", score: 39}},
+  {learner_id: 132, assignment_id: 1, submission: {submitted_at: "2023-01-24", score: 43}},
   {learner_id: 132, assignment_id: 2, submission: {Submitted_at: "2023-03-07", score: 140}},
 ];
 
@@ -204,9 +204,10 @@ const learnerSubmissions = [
 
  
 // }
+function calculateAssignmentScores(assignmentGroup, learnerSubmissions) {
 const date = new Date();
-const arr = assignmentGroup.assignments.filter(notDue => {
-  const dueDate = new Date(notDue.due_at); // Convert due_at to a Date object
+const arr = assignmentGroup.assignments.filter(assignment => {
+  const dueDate = new Date(assignment.due_at); // Convert due_at to a Date object
   return dueDate <= date; // Include only assignments that are due or past due
 });
 // console.log(arr);
@@ -216,32 +217,50 @@ const assignPoi = arr.reduce((map, assignment) => {
   return map;
 }, {});
 // console.log(assignPoi);
-// Calculate percentage scores for all students
-learnerSubmissions.forEach(submission => {
-  const assignmentId = submission.assignment_id;
-  // console.log(assignmentId);
-  const score = submission.submission.score;
-  // console.log(score);
-  if (assignPoi[assignmentId] !== undefined) {
-    const pointsPossible = assignPoi[assignmentId];
-    // console.log(pointsPossible);
-    const percentage = (score / pointsPossible) * 100;
-    // console.log(percentage);
-    return {
-      id: submission.learner_id
-      
-    }
-    console.log({`id: ${submission.learner_id}, id: ${assignmentId}, Score: ${score}, Points Possible: ${pointsPossible}, avg: ${percentage.toFixed(2)}%`});
-  }
+// Initialize an object to hold scores for each learner
+const scores = {};
+    // Calculate percentage scores for all students
+    learnerSubmissions.forEach(submission => {
+      const assignmentId = submission.assignment_id;
+      const score = submission.submission.score;
+
+      if (assignPoi[assignmentId] !== undefined) {
+          const pointsPossible = assignPoi[assignmentId];
+          const percentage = score / pointsPossible; // Percentage as a decimal
+
+          // Initialize the learner in the scores object if not already present
+          if (!scores[submission.learner_id]) {
+              scores[submission.learner_id] = { id: submission.learner_id, avg: 0, assignments: {} };
+          }
+
+          // Store the percentage for the specific assignment
+          scores[submission.learner_id].assignments[assignmentId] = percentage;
+      }
+  });
+// Calculate averages and format the output
+const result = Object.values(scores).map(learner => {
+  const assignmentPercentages = Object.values(learner.assignments);
+  const avg = assignmentPercentages.length > 0 ? assignmentPercentages.reduce((sum, score) => sum + score, 0) / assignmentPercentages.length: 0;
+
+        // Create the output object
+        const output = {
+          id: learner.id,
+          avg: Math.round(avg * 100) 
+      };
+
+      // Add individual assignment percentages
+      assignmentPercentages.forEach((percentage, index) => {
+        output[`assignment_${index + 1}`] = (Math.round(percentage * 100)); // Store at assignment keys
+    });
+
+      return output;
 });
-// Extract assignment IDs
-const assignmentIds = arr.map(assignment => assignment.id);
-
-// Extract learner submission IDs
-const learnerSubmissionIds = learnerSubmissions.map(submission => submission.assignment_id);
-
-// Check if there are matching IDs
-const matchingIds = assignmentIds.filter(id => learnerSubmissionIds.includes(id));
+  return result;
+}
+// Example usage:
+const scores = calculateAssignmentScores(assignmentGroup, learnerSubmissions);
+console.log(scores);
+// console.log(result);
 
 // Function to get unique learner IDs
 // function student(arr) {
